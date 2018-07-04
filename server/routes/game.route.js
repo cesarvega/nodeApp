@@ -19,8 +19,6 @@ gameRoutes.route('/add').post(function (req, res) {
     });
 });
 
-
-
 // Defined get data(index or listing) route
 gameRoutes.route('/').get(function (req, res) {
 

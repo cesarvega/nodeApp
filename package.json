@@ -2,7 +2,7 @@
   "name": "nodeapp",
   "version": "0.1.0",
   "scripts": {
-    "start": "micro"
+    "start": "node index"
   },
   "dependencies": {
     "axios": "^0.15.3",
