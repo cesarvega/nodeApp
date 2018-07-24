@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 config = require('./server/config/db'),
 api = require('./server/routes/api'),
 gameRoutes = require('./server/routes/game.route');
-
+appointmentRoutes = require('./server/routes/appointment.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
   () => {console.log('Database is connected') },
@@ -21,6 +21,7 @@ mongoose.connect(config.DB).then(
 
 app.use(cors());
 app.use('/games', gameRoutes);
+app.use('/appointments', appointmentRoutes);
 // Parsers for POST data
 
 
