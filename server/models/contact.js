@@ -5,9 +5,6 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for Games
 let Contact = new Schema({
-    id_chat_app: {
-    type: String
-    },
     name: {
         type: String
     },
@@ -20,8 +17,7 @@ let Contact = new Schema({
     mood:{
         type: String      
     }
-},
-{
+},{
     collection: 'contacts'
 });
 

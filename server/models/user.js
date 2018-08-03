@@ -31,7 +31,7 @@ let User = new Schema({
       type: String
     },
     unread: {
-      type: number
+      type: Number
     },
     lastMessageTime: {
       type: String

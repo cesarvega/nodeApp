@@ -1,6 +1,5 @@
 // appointments.route.js
-
-const express = require('../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/express'),
+const express = require('express'),
   appointmentRoutes = express.Router(),
   app = express(),
   Appointment = require('../models/appointment');

@@ -1,4 +1,4 @@
-// game.route.js
+// user.route.js
 
 const express = require('express'),
   userRoutes = express.Router(),
