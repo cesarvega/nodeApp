@@ -13,6 +13,9 @@ config = require('./server/config/db'),
 api = require('./server/routes/api'),
 gameRoutes = require('./server/routes/game.route');
 appointmentRoutes = require('./server/routes/appointment.route');
+contactRoutes = require('./server/routes/contact.route');
+chatRoutes = require('./server/routes/chat.route');
+userRoutes = require('./server/routes/user.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
   () => {console.log('Database is connected') },
@@ -22,6 +25,9 @@ mongoose.connect(config.DB).then(
 app.use(cors());
 app.use('/games', gameRoutes);
 app.use('/appointments', appointmentRoutes);
+app.use('/contact', contactRoutes);
+app.use('/chat', chatRoutes);
+app.use('/user', userRoutes);
 // Parsers for POST data
 
 

@@ -1,5 +1,4 @@
 // appointments.route.js
-
 const express = require('express'),
   appointmentRoutes = express.Router(),
   app = express(),
