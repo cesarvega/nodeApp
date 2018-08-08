@@ -16,21 +16,25 @@ appointmentRoutes.route('/set')
 
 // Defined get data(index or xlisting) route
 appointmentRoutes.route('/').get(function (req, res) {
-  Appointment.find(function (err, games) {
+  Appointment.find(function (err, appointments) {
     if (err) {
-      console.log(err);
+      console.log('err');
     }
     else {
-      res.json(games);
+      res.json(appointments);
     }
   });
 });
+/*app.get("/",function(req,res){
+  res.send('GET request to the homepage');
+})*/
 
 function makeArray(value) {
   return j.map(function(a) {
     return {[value]: a[value]};
   });
 }
+
 // Defined edit route
 appointmentRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
