@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for appointments
 
-let Appointment = new schema ({
+let Appointment = new Schema ({
   firstName: {
     type: String
   },
