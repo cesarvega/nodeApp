@@ -3,34 +3,28 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Define collection and schema for Games
-let Appoinment = new Schema({
-  zipcode: {
-    type: String
-  },
+// Define collection and schema for appointments
+
+let Appointment = new schema ({
   firstName: {
     type: String
   },
   lastName: {
     type: String
   },
-  address: {
+  phone: {
     type: String
   },
-  address2: {
+  email: {
     type: String
   },
-  city: {
+  date: {
     type: String
   },
-  state: {
+  time: {
     type: String
-  },
-  postalCode: {
-    type: String
-  }
-}, {
+  }  
+},{
     collection: 'appointments'
   });
-
-module.exports = mongoose.model('Appoinment', Appoinment);
+  module.exports = mongoose.model('Appointment', Appointment);
