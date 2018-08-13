@@ -26,7 +26,7 @@ let Appointment = new Schema({
         name: String,
         description: String,
         time: String,
-        price: Decimal128
+        price: String
       }
     ]
   },
