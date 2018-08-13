@@ -45,9 +45,13 @@ appointmentRoutes.route('/update/:id').post(function (req, res) {
     if (!appointments)
       return next(new Error('Could not load Document'));
     else {
-      appointments.name = req.body.name;
-      appointments.price = req.body.price;
-
+      appointments.firstName = req.body.firstName;
+      appointments.lastName = req.body.lastName;
+      appointments.phone = req.body.phone;
+      appointments.email = req.body.email;
+      appointments.date = req.body.date;
+      appointments.time = req.body.time;
+     
       appointments.save().then(appointments => {
         res.json('Update complete');
       })
