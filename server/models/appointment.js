@@ -117,7 +117,10 @@ let Appointment = new Schema({
       type: Boolean
     }
 
-  }    
+  },
+  lastUpdate: {
+    type: String
+  }   
   
 },
 {  
