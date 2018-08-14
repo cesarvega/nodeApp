@@ -120,7 +120,10 @@ let Appointment = new Schema({
   },
   lastUpdate: {
     type: String
-  }   
+  },
+  create: {
+    type: String
+  }    
   
 },
 {  
