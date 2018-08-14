@@ -7,10 +7,15 @@ const express = require('express'),
 appointmentRoutes.route('/set')
   .post(function (req, res) {
     let appointments =  new Appointment(req.body);
+    var service = { name: req.body.name, description: 'wash',time:'11:00',price:'90' }; 
+    
+    appointments.package.ServiceMenu.push(service)
+     
     appointments.save(function(err, task) {
       if (err)
         res.send(err);
       res.json(task);
+      console.log(req.body)
     });
   });
 
