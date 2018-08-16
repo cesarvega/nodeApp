@@ -114,7 +114,7 @@ let Appointment = new Schema({
       }
     },
     cash: {
-      type: Boolean
+      type: String
     }
 
   },

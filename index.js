@@ -9,6 +9,31 @@ app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+// after the code that uses bodyParser and other cool stuff
+
+var originsWhitelist = [
+
+  'http://localhost:4200',      //development
+
+   'http://www.myproductionurl.com'
+
+];
+
+var corsOptions = {
+
+  origin: function(origin, callback){
+
+        var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+
+        callback(null, isWhitelisted);
+
+  },
+
+  credentials:true
+
+}
+app.use(cors(corsOptions));
 config = require('./server/config/db'),
 api = require('./server/routes/api'),
 gameRoutes = require('./server/routes/game.route');
