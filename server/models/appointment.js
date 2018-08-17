@@ -7,20 +7,10 @@ const Schema = mongoose.Schema;
 
 let Appointment = new Schema({
   package: {
-    vehicleType: {
-      
-        type: String
-      
-    },
-    detail: {
-      type: String
-    },
-    time: {
-      type: String
-    },
-    description: {
-      type: String
-    },
+    vehicleType: String,
+    detail: String,
+    time: String,
+    description: String,
     ServiceMenu:[
       {
         name: String,
@@ -32,18 +22,10 @@ let Appointment = new Schema({
   },
  information: {
       customerInfo: {
-        firsName: {
-          type: String
-        },
-        lastName: {
-          type: String
-        },
-        phone: {
-          type: String
-        },
-        email: {
-          type: String
-        }
+        firsName: String,
+        lastName: String,
+        phone: String,
+        email: String
       },
       serviceAddres: {
         address: {
@@ -85,45 +67,26 @@ let Appointment = new Schema({
       }
   },
   chooseAppointment: {
-      date: {
-        type: String
-      },
-      time: {
-        type: String
-      }
+      date: String,
+      time: String
   },
-  totalDuration: {
-    type: String
-  },
-  totalCost: {
-    type: String
-  },
+  totalDuration: String,
+  totalCost: String,
   paymentDetails: {
     creditCard: {
-      cardNumber: {
-        type: String
-      },
-      cvv: {
-        type: String
-      },
-      expirationDate: {
-        type: String
-      },
-      billingZipCode: {
-        type: String
-      }
+      cardNumber: String,
+      cvv: String,
+      expirationDate: String,
+      billingZipCode: String
     },
     cash: {
       type: String
     }
 
   },
-  lastUpdate: {
-    type: String
-  },
-  create: {
-    type: String
-  }    
+  lastUpdate: String,
+  create: String
+   
   
 },
 {  
