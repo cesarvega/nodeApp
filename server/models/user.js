@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for user
 let User = new Schema({
-  id_chat_appokgracias: {
+  id_chat_app: {
     type: String
   },
   name: {
@@ -21,10 +21,10 @@ let User = new Schema({
     type: String
   },
   chatList:{
-    id_chat_appokgracias: {
+    id_chat_app: {
       type: String
     },
-    contactId_chat_appokgracias: {
+    contactId_chat_app: {
       type: String
     },
     name: {

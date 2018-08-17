@@ -7,7 +7,7 @@ const express = require('express'),
 // Defined store route
 appointmentRoutes.route('/set')
   .post(function (req, res) {
-
+ 
       //   this._appointment.package.detail = '11/26/2018';
   //  this._appointment.package.time = ''11/26/2018'';
   //   this._appointment.package.description = ''11/26/2018'';
