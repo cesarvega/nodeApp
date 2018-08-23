@@ -17,16 +17,16 @@ appointmentRoutes.route('/set')
   });
 
 // Defined get data(index or xlisting) route
-appointmentRoutes.route('/').get(function (req, res) {
-  var Appointment =  new _appointment(req.body);
-  // Appointment.find(function (err, appointments) {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   else {
-  //     res.json(appointments);
-  //   }
-  // });
+appointmentRoutes.route('/').get(function (req,res) {
+  //var Appointment =  new _appointment(req.body);
+  _appointment.find(function (err, appointments) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.json(appointments);
+    }
+  });
 });
 
 function makeArray(value) {
@@ -38,15 +38,15 @@ function makeArray(value) {
 appointmentRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   Appointment =  new _appointment(req.body);
-  Appointment.findById(id, function (err, appointments) {
+  _appointment.findById(id, function (err, appointments) {
     res.json(appointments);
   });
 });
 
 //  Defined update route
 appointmentRoutes.route('/update/:id').post(function (req, res) {
-  Appointment =  new _appointment(req.body);
-  Appointment.findById(req.params.id, function (err, appointments) {
+  //Appointment =  new _appointment(req.body);
+  _appointment.findById(req.params.id, function (err, appointments) {
     if (!appointments)
       return next(new Error('Could not load Document'));
     else {
@@ -69,8 +69,8 @@ appointmentRoutes.route('/update/:id').post(function (req, res) {
 
 // Defined delete | remove | destroy route
 appointmentRoutes.route('/delete/:id').get(function (req, res) {
-  Appointment =  new _appointment(req.body);
-  Appointment.findByIdAndRemove({ _id: req.params.id }, function (err, appointments) {
+  //Appointment =  new _appointment(req.body);
+  _appointment.findByIdAndRemove({ _id: req.params.id }, function (err, appointments) {
     if (err) res.json(err);
     else res.json('Successfully removed');
   });
