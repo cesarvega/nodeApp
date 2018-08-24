@@ -23,7 +23,7 @@ const express = require('express'),
 
 scrumboardRoutes.route('/add').post((req,res)=>{
     let Scrumboard =  new _scrumboard(req.body)
-    Scrumboard.board.list.push({name : "todo re bien",id: "hola esta es el id",idCards:["uyyut1dcards","estusdcards"]})
+    //Scrumboard.board.list.push({name : "todo re bien",id: "hola esta es el id",idCards:["uyyut1dcards","estusdcards"]})
     Scrumboard.save(function(err,task){
         if (err){
             res.send(err);}
@@ -51,12 +51,8 @@ scrumboardRoutes.route('/update/:id').post((req,res)=>{
         if (!scrumboard){
           return next(new Error('Could not load Document'));
         }else {
-            scrumboard.board.id = req.body.id;
-            scrumboard.board.uri = req.body.uri;
-        //   appointments.phone = req.body.phone;
-        //   appointments.email = req.body.email;
-        //   appointments.date = req.body.date;
-        //   appointments.time = req.body.time;
+            scrumboard.id = req.body.id;
+            scrumboard.uri = req.body.uri;       
          
         scrumboard.save().then(scrumboard => {
             res.json('Update complete');
