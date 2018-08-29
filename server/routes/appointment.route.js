@@ -82,5 +82,4 @@ appointmentRoutes.use(function(req, res, next) {
   next(); // make sure we go to the next routes and don't stop here
 });
 
-
 module.exports = appointmentRoutes;

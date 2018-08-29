@@ -3,7 +3,7 @@
 const express = require('express'),
   userRoutes = express.Router(),
   app = express(),
-  User = require('../models/user');
+  User = require('../models/users');
 // Defined store route
 userRoutes.route('/add')
   .post(function (req, res) {

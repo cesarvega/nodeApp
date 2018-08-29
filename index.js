@@ -43,6 +43,7 @@ chatRoutes = require('./server/routes/chat.route');
 userRoutes = require('./server/routes/user.route');
 scrumboardRoutes = require('./server/routes/scrumboard.route');
 infoRoutes = require('./server/routes/info.route');
+adminRoutes = require('./server/routes/admin.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
   () => {console.log('Database is connected') },
@@ -57,6 +58,7 @@ app.use('/chat', chatRoutes);
 app.use('/user', userRoutes);
 app.use('/scrumboards',scrumboardRoutes );
 app.use('/info',infoRoutes);
+app.use('/admin',adminRoutes);
 // Parsers for POST data
 
 

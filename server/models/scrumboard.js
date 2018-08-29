@@ -10,80 +10,89 @@ let Scrumboard = new Schema({
             subscribed: Boolean,
             cardCoverImages: Boolean
         },
-        list: [{
-            id: String,
-            name: String,
-            idCards: [
-                String
-            ]
-        }],
-        cards: [{
-            id: String,
-            name: String,
-            description: String,
-            idAttachmentCover: String,
-            idMembers: [
-                String
-            ],
-            idLabels: [
-                String
-            ],
-            attachments: [
+        list: [
                 {
                     id: String,
                     name: String,
-                    src: String,
-                    time: String,
-                    type: String
-                }
-
-            ],
-            subscribed: Boolean,
-            checklists: [
-                {
-                    id: String,
-                    name: String,
-                    checkItemsChecked: Number,
-                    checkItems: [
-                        {
-                            name: String,
-                            checked: Boolean
-                        }
+                    idCards: [
+                        String
                     ]
-                    
-
                 }
             ],
-            checkItems: Number,
-            checkItemsChecked: Number,
-            comments: [
+       cards:[
                 {
-                    idMember: String,
-                    message: String,
-                    time: String 
+                    id: String,
+                    name: String,
+                    description: String,
+                    idAttachmentCover: String,
+                    idMembers: [
+                        String
+                    ],
+                    idLabels: [
+                        String
+                    ],
+                    attachments: [
+                        {
+                            id: String,
+                            name: String,
+                            src: String,
+                            time: String,
+                            type: String
+                        }
+
+                    ],
+                    subscribed: Boolean,
+                    checklists: [
+                        {
+                            id: String,
+                            name: String,
+                            checkItemsChecked: Number,
+                            checkItems: [
+                                {
+                                    name: String,
+                                    checked: Boolean
+                                }
+                            ]
+                            
+
+                        }
+                    ],
+                    checkItems: Number,
+                    checkItemsChecked: Number,
+                    comments: [
+                        {
+                            idMember: String,
+                            message: String,
+                            time: String 
+                        }
+                    ],
+                    activities:  [
+                        {
+                            idMember: String,
+                            message: String,
+                            time: String 
+                        }
+
+                    ],
+                    due: String    
+
                 }
             ],
-            activities:  [
+        
+        members: [
                 {
-                    idMember: String,
-                    message: String,
-                    time: String 
-                }
-
-            ],
-            due: String    
-
-        }],
-        members: [{
-            id: String,
-            name: String,
-            avatar: String
-        }],
-        label: [{
-            id: String,
-            name: String,
-            color: String
-        }]
+                id: String,
+                name: String,
+                avatar: String
+            }
+        ],
+        label: [
+            {
+                id: String,
+                name: String,
+                color: String
+            }
+        ]
     }
 
 },
