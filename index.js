@@ -36,14 +36,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 config = require('./server/config/db'),
 api = require('./server/routes/api'),
-gameRoutes = require('./server/routes/game.route');
-appointmentRoutes = require('./server/routes/appointment.route');
-contactRoutes = require('./server/routes/contact.route');
-chatRoutes = require('./server/routes/chat.route');
-userRoutes = require('./server/routes/user.route');
 scrumboardRoutes = require('./server/routes/scrumboard.route');
-infoRoutes = require('./server/routes/info.route');
-adminRoutes = require('./server/routes/admin.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
   () => {console.log('Database is connected') },
@@ -51,14 +44,7 @@ mongoose.connect(config.DB).then(
 );
 
 app.use(cors());
-app.use('/games', gameRoutes);
-app.use('/appointments', appointmentRoutes);
-app.use('/contact', contactRoutes);
-app.use('/chat', chatRoutes);
-app.use('/user', userRoutes);
 app.use('/scrumboards',scrumboardRoutes );
-app.use('/info',infoRoutes);
-app.use('/admin',adminRoutes);
 // Parsers for POST data
 
 
