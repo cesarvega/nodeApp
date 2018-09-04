@@ -42,6 +42,8 @@ infoRoutes.route('/edit/:id').get(function (req, res) {
   _info.findById(id, function (err, Infos) {
     //res.json(Infos);
 
+    if(err) return res.status(404).send('usuario no encontrado')
+
     //si esta el regisro se genera un token
     return res.status(200).send({token: service(Infos)})
   });

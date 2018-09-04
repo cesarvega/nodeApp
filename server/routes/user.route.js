@@ -4,29 +4,13 @@ const express = require('express'),
   userRoutes = express.Router(),
   app = express();
   User = require('../models/users');
-  const service = require('../controllers/service');
-  const bcrypt = require('bcrypt-nodejs');
+   
+  const auth = require('../controllers/auth');
+  
 //Defined store route
 userRoutes.route('/add')
   .post(function (req, res) {
-    let user = new User(req.body);  
-    //encriptamos la contrasena
-    if(!user.isModified('password')) return next()
-    bcrypt.genSalt(10,(err,salt)=>{
-        if (err) return next()
-        bcrypt.hash(user.password,salt,null,(err,hash)=>{
-            if (err)  return next(err)
-            user.password = hash;         
-        })
-    })
- //guardamos el usuario y generamos el token
-    user.save(function(err, task) {
-      if (err)
-        res.send(err);
-      res.json(task);
-      
-      //return res.status(200).send({token:service(user)})
-    });
+   auth.signUp(req,res)
   });
 
 // Defined get data(index or listing) route
@@ -43,11 +27,8 @@ userRoutes.route('/').get(function (req, res) {
 
 // Defined edit route
 userRoutes.route('/edit/:id').get(function (req, res) {
-  let id = req.params.id;
-  User.findById(id, function (err, user) {
-    //res.json(user);
-    return res.status(200).send({token: service(user)})
-  });
+
+  auth.signIn(req,res)  
 });
 
 //  Defined update route
