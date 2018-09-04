@@ -1,18 +1,31 @@
 // user.route.js
-
+const mongoose = require('mongoose');
 const express = require('express'),
   userRoutes = express.Router(),
-  app = express(),
+  app = express();
   User = require('../models/users');
-// Defined store route
+  const service = require('../controllers/service');
+  const bcrypt = require('bcrypt-nodejs');
+//Defined store route
 userRoutes.route('/add')
   .post(function (req, res) {
-    let user = new User(req.body);
-    console.log(req.body);
+    let user = new User(req.body);  
+    //encriptamos la contrasena
+    if(!user.isModified('password')) return next()
+    bcrypt.genSalt(10,(err,salt)=>{
+        if (err) return next()
+        bcrypt.hash(user.password,salt,null,(err,hash)=>{
+            if (err)  return next(err)
+            user.password = hash;         
+        })
+    })
+ //guardamos el usuario y generamos el token
     user.save(function(err, task) {
       if (err)
         res.send(err);
       res.json(task);
+      
+      //return res.status(200).send({token:service(user)})
     });
   });
 
@@ -32,7 +45,8 @@ userRoutes.route('/').get(function (req, res) {
 userRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   User.findById(id, function (err, user) {
-    res.json(user);
+    //res.json(user);
+    return res.status(200).send({token: service(user)})
   });
 });
 

@@ -3,6 +3,7 @@ const express = require('express'),
   infoRoutes = express.Router(),
   app = express(),
   _info = require('../models/info');
+  const service = require('../controllers/service');
   
 infoRoutes.route('/set')
   .post(function (req, res) {
@@ -39,7 +40,10 @@ infoRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   Info =  new _info(req.body);
   _info.findById(id, function (err, Infos) {
-    res.json(Infos);
+    //res.json(Infos);
+
+    //si esta el regisro se genera un token
+    return res.status(200).send({token: service(Infos)})
   });
 });
 
